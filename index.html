@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!-- 声明文档类型为HTML5 -->
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <!-- 适配移动端，设置视口 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>普通测试网页</title>
+    <style>
+        /* 基础样式，简洁易读 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "微软雅黑", sans-serif;
+        }
+        body {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .test-box {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        input, button {
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            margin-right: 10px;
+            margin-bottom: 15px;
+        }
+        button {
+            background: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            min-height: 80px;
+            font-size: 16px;
+        }
+        .info {
+            color: #666;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部标题 -->
+    <div class="header">
+        <h1>简易测试网页</h1>
+        <p>基础HTML+CSS+JS测试演示</p>
+    </div>
+
+    <!-- 核心测试区域 -->
+    <div class="test-box">
+        <h3>1. 输入框测试</h3>
+        <input type="text" id="inputText" placeholder="请输入测试内容...">
+        <button onclick="showInput()">点击显示内容</button>
+        <button onclick="clearInput()">清空</button>
+
+        <!-- 结果展示区 -->
+        <div class="result" id="resultBox">
+            点击上方按钮，结果将显示在这里...
+        </div>
+    </div>
+
+    <!-- 基础信息区 -->
+    <div class="info">
+        <p>📌 测试说明：这是一个极简的HTML测试页面，包含基础的DOM操作、样式布局、按钮交互；</p>
+        <p>📌 可直接在浏览器打开，也可基于此修改添加表单、图片、表格等元素。</p>
+    </div>
+
+    <!-- 简单JS交互 -->
+    <script>
+        // 显示输入的内容
+        function showInput() {
+            const input = document.getElementById("inputText").value;
+            const resultBox = document.getElementById("resultBox");
+            if (input) {
+                resultBox.innerHTML = `你输入的内容：<strong>${input}</strong>`;
+                resultBox.style.color = "#007bff";
+            } else {
+                resultBox.innerHTML = "请先在输入框中填写内容哦！";
+                resultBox.style.color = "#dc3545";
+            }
+        }
+        // 清空输入框和结果
+        function clearInput() {
+            document.getElementById("inputText").value = "";
+            const resultBox = document.getElementById("resultBox");
+            resultBox.innerHTML = "点击上方按钮，结果将显示在这里...";
+            resultBox.style.color = "#333";
+        }
+        // 页面加载提示
+        window.onload = function() {
+            console.log("测试网页加载完成 ✅");
+        }
+    </script>
+</body>
+</html>
